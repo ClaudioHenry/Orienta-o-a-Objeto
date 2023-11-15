@@ -16,8 +16,9 @@ public class Produto {
     public void setPreco(float preco) {
         while (preco < 0) {
             System.out.println("O preço não pode ser menor que 0. Digite novamente: ");
-            Scanner scanner = new Scanner(System.in);
-            preco = scanner.nextFloat();
+            try (Scanner scanner = new Scanner(System.in)) {
+                preco = scanner.nextFloat();
+            }
         }
         this.preco = preco;
     }
@@ -29,8 +30,9 @@ public class Produto {
     public void setQuantidade(int quantidade) {
         while (quantidade < 0) {
             System.out.println("A quantidade nao pode ser menor que 0. Digite novamente: ");
-            Scanner scanner = new Scanner(System.in);
-            quantidade = scanner.nextInt();
+            try (Scanner scanner = new Scanner(System.in)) {
+                quantidade = scanner.nextInt();
+            }
         }
         this.quantidade = quantidade;
     }
